@@ -2,7 +2,7 @@ package atm;
 
 public class ATM {
 
-	String requiredPin = "1234";
+	String requiredPin = "1628";
 
 	Boolean allowAccess(String enteredPin) {
 		if (requiredPin.equals(enteredPin)) {

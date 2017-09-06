@@ -1,11 +1,15 @@
 package atm;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ATMClientApp {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Locale locale = new Locale("en", "US");
+		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
 		ATM telhio = new ATM();
 
@@ -14,7 +18,7 @@ public class ATMClientApp {
 
 		System.out.println("Allow access? " + telhio.allowAccess(enteredPin));
 
-		while (telhio.allowAccess(enteredPin) == true) {
+		while (telhio.allowAccess(enteredPin)) {
 			int menuEntry;
 
 			do {
@@ -25,22 +29,22 @@ public class ATMClientApp {
 				System.out.println("Press 4 to exit");
 				menuEntry = input.nextInt();
 			} while (menuEntry != 1 && menuEntry != 2 && menuEntry != 3 && menuEntry != 4);
-			
+
 			switch (menuEntry) {
 			case 1:
 				System.out.println("Please enter your deposit amount:");
 				double amount = input.nextDouble();
 				telhio.deposit(amount);
-				System.out.println("Your current account balance: " + telhio.balance);
+				System.out.println("Your current account balance: " + currencyFormatter.format(telhio.balance));
 				break;
 			case 2:
 				System.out.println("Please enter your withdrawal amount:");
 				amount = input.nextDouble();
 				telhio.withdrawal(amount);
-				System.out.println("Your current account balance: " + telhio.balance);
+				System.out.println("Your current account balance: " + currencyFormatter.format(telhio.balance));
 				break;
 			case 3:
-				System.out.println("Your current account balance: " + telhio.balance);
+				System.out.println("Your current account balance: " + currencyFormatter.format(telhio.balance));
 				break;
 			case 4:
 				System.out.println("Thank you.  Have a nice day!");

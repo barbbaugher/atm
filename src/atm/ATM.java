@@ -10,4 +10,14 @@ public class ATM {
 		}
 		return false;
 	}
+	
+	double balance = 100.00;
+	
+	void deposit (double amount) {
+		balance += amount;
+	}
+	
+	void withdrawal (double amount) {
+		balance -= amount;
+	}
 }

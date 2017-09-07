@@ -2,7 +2,14 @@ package atm;
 
 public class ATM {
 
-	String requiredPin = "1628";
+	String requiredPin;
+	double balance;
+	
+	
+	public ATM(String pin, double bankBalance) {
+		requiredPin = pin;
+		balance = bankBalance;
+	}
 
 	Boolean allowAccess(String enteredPin) {
 		if (requiredPin.equals(enteredPin)) {
@@ -10,8 +17,6 @@ public class ATM {
 		}
 		return false;
 	}
-	
-	double balance = 100.00;
 	
 	void deposit (double amount) {
 		balance += amount;

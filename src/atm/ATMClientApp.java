@@ -11,7 +11,7 @@ public class ATMClientApp {
 		Locale locale = new Locale("en", "US");
 		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
-		ATM telhio = new ATM();
+		ATM telhio = new ATM("1628",2853);
 
 		System.out.println("Welcome to the Bank of We Can Code IT ATM. \nPlease enter your pin: ");
 		String enteredPin = input.next();
